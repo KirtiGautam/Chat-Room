@@ -1,0 +1,16 @@
+.chatWindow{
+    margin-left: 15%;
+    margin-top: 5%;
+    min-height: 40vmax;
+    height: 40vmax;
+    width: 60vmax;
+    border-style: solid;
+    border-width: 5px;
+    overflow-y: scroll;
+}
+ul{
+    list-style-type: none;
+}
+.reciever{
+    text-align: right;
+}
