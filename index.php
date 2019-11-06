@@ -1,29 +1,32 @@
 <?php
 session_start();
+
+if(isset($_COOKIE['name']))
+    if(!$_COOKIE['name']=='')
+        header('Location: chat.php');
 if (isset($_POST["login"])) {
-    $conn = mysqli_connect('localhost', "root", "pwdpwd", "test");
+    @include("connection.php");
     $sql = "SELECT * FROM users";
     $result = $conn->query($sql);
     if ($result->num_rows > 0)
         while ($row = $result->fetch_assoc())
             if ($_POST["username"] == $row["username"] && password_verify($_POST["password"], $row["password"])) {
                 echo "welcome";
+                setcookie('name', $_POST["username"], time() + (86400 * 30), "/");
                 $_SESSION["name"] = $_POST["username"];
                 header('Location: chat.php');
             }
     mysqli_close($conn);
 } else if (isset($_POST["signUp"])) {
-    $conn = mysqli_connect('localhost', "root", "pwdpwd", "test");
-    $sql = "INSERT INTO users VALUES('" . $_POST["susername"] . "' ,'" . password_hash($_POST["spassword"], PASSWORD_BCRYPT) . "')";
+    @include("connection.php");
+    $sql = "INSERT INTO users VALUES('" . $_POST["susername"] . "' ,'" . password_hash($_POST["spassword"], PASSWORD_BCRYPT) . "' ,'" . $_POST["sname"] . "')";
     $result = $conn->query($sql);
     mysqli_close($conn);
-    $_SESSION["name"] = $_POST["susername"];
     echo '<script language="javascript">';
-    echo 'alert("Sign up successful")';
+    echo 'alert("Sign up successful, Login to continue")';
     echo '</script>';
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,6 +73,7 @@ if (isset($_POST["login"])) {
             </div>
         </div>
     </div>
+    <script src="login.js"></script>
 </body>
 
 </html>
