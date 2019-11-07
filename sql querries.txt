@@ -1,0 +1,13 @@
+CREATE  TABLE IF NOT EXISTS `users` (
+  `username` VARCHAR(20) NOT NULL ,
+  `password` CHAR(255),
+  `name` VARCHAR(30) NOT NULL ,
+  `status` TIMESTAMP NOT NULL )
+ENGINE = InnoDB;
+
+CREATE  TABLE IF NOT EXISTS `messages` (
+  `sender` VARCHAR(20) NOT NULL ,
+  `text` VARCHAR(5000) NOT NULL ,
+  `reciever` VARCHAR(20) NOT NULL ,
+  `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP )
+ENGINE = InnoDB;
