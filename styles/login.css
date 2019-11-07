@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
+@font-face{
+  font-family: ora;
+  src: url("orange juice 2.0.ttf");
+}
+
 * {
   box-sizing: border-box;
   overflow-y: hidden;
@@ -9,7 +14,9 @@
 body {
   /* background-image: url("Synthwave-Neon-80s-Background-2K.webp"); */
   background-size: cover;
-  background-image: linear-gradient(45deg,crimson 40%,MEDIUMVIOLETRED);
+  background: #bc4e9c;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f80759, #bc4e9c);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f80759, #bc4e9c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,6 +107,12 @@ input {
   background: transparent;
   font: bold;
   
+}
+
+.con{
+  font-family: ora;
+  font-size: 150px;
+  text-align: center;
 }
 
 .container {
@@ -223,4 +236,20 @@ input {
 
 .container.right-panel-active .overlay-right {
   transform: translateX(20%);
+}
+
+input[type="text"]{
+  border-bottom: 2px solid gray;
+}
+
+input[type="text"]:focus{
+  border-bottom: 2px solid purple;
+}
+
+input[type="password"]{
+  border-bottom: 2px solid gray;
+}
+
+input[type="password"]:focus{
+  border-bottom: 2px solid purple;
 }
