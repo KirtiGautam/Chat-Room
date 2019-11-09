@@ -2,7 +2,8 @@ CREATE  TABLE IF NOT EXISTS `users` (
   `username` VARCHAR(20) NOT NULL ,
   `password` CHAR(255),
   `name` VARCHAR(30) NOT NULL ,
-  `status` TIMESTAMP NOT NULL )
+  `status` TIMESTAMP NOT NULL,
+  `offm` VARCHAR(5000) NOT NULL  )
 ENGINE = InnoDB;
 
 CREATE  TABLE IF NOT EXISTS `messages` (
