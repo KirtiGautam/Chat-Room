@@ -19,7 +19,7 @@ if (isset($_POST["login"])) {
     mysqli_close($conn);
 } else if (isset($_POST["signUp"])) {
     @include("connect\connection.php");
-    $sql = "INSERT INTO users VALUES('" . $_POST["susername"] . "' ,'" . password_hash($_POST["spassword"], PASSWORD_BCRYPT) . "' ,'" . $_POST["sname"] . "' ,now())";
+    $sql = "INSERT INTO users VALUES('" . $_POST["susername"] . "' ,'" . password_hash($_POST["spassword"], PASSWORD_BCRYPT) . "' ,'" . $_POST["sname"] . "' ,now(), 'Sorry, I\'m unvailable')";
     $result = $conn->query($sql);
     mysqli_close($conn);
     echo '<script language="javascript">';

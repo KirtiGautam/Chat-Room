@@ -248,3 +248,33 @@ button:hover {
   background-size: 100%;
   transition: background 0s;
 }
+
+
+.setti{
+  float: right;
+}
+
+.menu {
+  visibility: hidden;
+}
+
+figure:active .menu,
+figure:focus .menu {
+  visibility: visible;
+}
+
+.us{
+  float: left;
+}
+
+.stat{
+  float: right;
+  font-size: 3vmax;
+  color: #585858;
+
+}
+
+.offm{
+  text-align: justify;
+  font-size: 2vmax; 
+}
