@@ -27,6 +27,23 @@ if (isset($_POST["logout"])) {
     <div class="container">
         <div class="jumbotron">
             <div class="con">F.R.I.E.N.D.S</div>
+            <span class="setti">
+                <figure tabindex="-1">
+                    <img class="zet" src="https://img.icons8.com/ios-filled/50/000000/gear.png">
+
+                    <nav class="menu">
+                        <ul>
+                            <li>
+                                <button onclick="changep()">Change Password</button>
+                            </li>
+                            <li>
+                                <button onclick="upmess()">Update offline message</button>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </figure>
+            </span>
         </div>
         <div class="row">
             <div class="col-lg-4">
@@ -37,7 +54,7 @@ if (isset($_POST["logout"])) {
                             echo $row['name'];
                             mysqli_close($conn); ?></h1>
                 <h2>Please select a user to chat with:</h2>
-                <div  class="users" id="used">
+                <div class="users" id="used">
                 </div>
             </div>
             <div id="c" class="col-lg-8 ">

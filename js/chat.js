@@ -2,6 +2,56 @@ var reciep;
 let intervalid;
 let intervalid2;
 
+const img = document.querySelector('.zet');
+const menu = document.querySelector('.menu');
+
+img.addEventListener('mousedown', ({ offsetX, offsetY }) => {
+    menu.style.top = offsetY + 'px';
+    menu.style.left = offsetX + 'px';
+});
+
+function upmess() {
+    var me = prompt("Enter your offline message", "Sorry I am unavailable.");
+    if (me == null || me == "") {
+        return;
+    } else {
+        me ="mess="+me; 
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                alert("Message updated Successfully");
+            }
+        }
+        xmlHttp.open("post", "messages/updatemessage.php");
+        xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttp.send(me);
+    }
+}
+
+function changep() {
+    var pass = prompt("Enter your new password", "");
+    if (pass == null || pass == "") {
+        return;
+    }
+    var confirm = prompt("Confirm new password", "");
+    if(pass != confirm){
+        alert("Passwords don't match, try again");
+        return;
+    }
+    else {
+        pass ="pass="+me; 
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                alert("Password updated Successfully");
+            }
+        }
+        xmlHttp.open("post", "users/updatepassword.php");
+        xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttp.send(pass);
+    }
+}
+
 window.setInterval(function () {
 
     var xmlHttp = new XMLHttpRequest();
@@ -43,11 +93,10 @@ function getPaging(val) {
 
     window.clearInterval(intervalid2);
     intervalid2 = window.setInterval(function () {
-        var vald = val.replace('rec=', '');
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                document.getElementById('status').innerHTML = vald + "           " + xmlHttp.responseText;
+                document.getElementById('status').innerHTML = xmlHttp.responseText;
             }
         }
         xmlHttp.open("post", "status/getstatus.php");
