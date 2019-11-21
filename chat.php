@@ -18,64 +18,64 @@ if (isset($_POST["logout"])) {
 <html lang="en">
 
 <head>
-    <title>Document</title>
+    <title>Chat Window</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/chat.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 
-<body>
-    <div class="container">
-        <div class="jumbotron">
-            <div class="con">F.R.I.E.N.D.S</div>
-            <span class="setti">
-                <figure tabindex="-1">
-                    <img class="zet" src="https://img.icons8.com/ios-filled/50/000000/gear.png">
+<body style="background-image: url('https://cdn.pixabay.com/photo/2017/08/12/03/22/flower-2633363_960_720.png');background-size:cover;">
+    <form action="">
+        <table>
+            <tr >
+                <td>
+                    <div class="con">F.R.I.E.N.D.S</div>
+                </td>
+                <td></td>
+                <td>
+                            <button onclick="changep()" title="Change Password"><i class="fa fa-unlock-alt" aria-hidden="true"></i></button>
+                            <button onclick="upmess()" title="Update offline message"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            <button name="logout" type="submit" title="Logout"><i class="fa fa-power-off" aria-hidden="true"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h1>Hello <?php @include("connect\connection.php");
+                                $sql = "SELECT name FROM users WHERE username='" . $_COOKIE['name'] . "'";
+                                $result = $conn->query($sql);
+                                $row = $result->fetch_assoc();
+                                echo $row['name'];
+                                mysqli_close($conn); ?>
+                    </h1>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <h2>Please select a user to chat with:</h2>
+                </td>
+                <td >
+                    <h1 id="status">Chat window</h1>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <div class="users" id="used"></div>
+                </td>
+                <td>
+                    <div class="chatWindow" id="chat" onscroll="scro()"></div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td width="1000px">
+                    <textarea name="mess" id="message" class="ssss" placeholder="Enter any message"></textarea>
+                    <button type="submit" title="send" onclick="myFunction(); return false;"><i class="fa fa-paper-plane" aria-hidden="true" ></i></button>
+                </td>
+            </tr>
+        </table>
+    </form>
 
-                    <nav class="menu">
-                        <ul>
-                            <li>
-                                <button onclick="changep()">Change Password</button>
-                            </li>
-                            <li>
-                                <button onclick="upmess()">Update offline message</button>
-                            </li>
 
-                        </ul>
-                    </nav>
-                </figure>
-            </span>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <h1>Hello <?php @include("connect\connection.php");
-                            $sql = "SELECT name FROM users WHERE username='" . $_COOKIE['name'] . "'";
-                            $result = $conn->query($sql);
-                            $row = $result->fetch_assoc();
-                            echo $row['name'];
-                            mysqli_close($conn); ?></h1>
-                <h2>Please select a user to chat with:</h2>
-                <div class="users" id="used">
-                </div>
-            </div>
-            <div id="c" class="col-lg-8 ">
-                <h1 id="status">Chat window</h1>
-                <div class="chatWindow col-lg-12" id="chat" onscroll="scro()"></div>
-                <div class="col-lg-12"><br></div>
-                <form action="">
-                    <div class="col-lg-8"><textarea name="mess" id="message" class="ssss" placeholder="Enter any message"></textarea></div>
-                    <div class="col-lg-4"><input type="submit" value="Send" onclick="myFunction(); return false;"></div>
-                </form>
-            </div>
-        </div>
-        <div><br><br></div>
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6">
-            <form method="POST">
-                <button name="logout" type="submit">Logout</button>
-            </form>
-        </div>
-    </div>
-    </div>
 </body>
 <script src="js/chat.js"></script>
 
