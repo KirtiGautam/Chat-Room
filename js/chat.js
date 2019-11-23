@@ -2,14 +2,6 @@ var reciep;
 let intervalid;
 let intervalid2;
 
-const img = document.querySelector('.zet');
-const menu = document.querySelector('.menu');
-
-img.addEventListener('mousedown', ({ offsetX, offsetY }) => {
-    menu.style.top = offsetY + 'px';
-    menu.style.left = offsetX + 'px';
-});
-
 function upmess() {
     var me = prompt("Enter your offline message", "Sorry I am unavailable.");
     if (me == null || me == "") {
@@ -46,7 +38,7 @@ function changep() {
                 alert("Password updated Successfully");
             }
         }
-        xmlHttp.open("post", "users/updatepassword.php");
+        xmlHttp.open("POST", "users/updatepassword.php");
         xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlHttp.send(pass);
     }
@@ -118,4 +110,8 @@ function myFunction() {
     xmlHttp.open("post", "messages/sendmessage.php");
     xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlHttp.send(dat);
+}
+
+function log(){
+    document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }

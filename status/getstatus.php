@@ -10,8 +10,10 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $rec = strtotime($row['status']);
 if (($send - $rec) > 12) {
-    echo "<div><span class='us'>".$row['name']."</span>
+    echo "<div><span class='us'>" . $row['name'] . "</span>
         <span class='stat'>Offline</span></div>";
     echo "<br><p class='offm'>" . $row['offm'] . "</p>";
-} else
-    echo "Online";
+} else {
+    echo "<div><span class='us'>" . $row['name'] . "</span>
+        <span class='stat'>Online</span></div>";
+}
