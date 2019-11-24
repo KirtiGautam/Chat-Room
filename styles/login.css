@@ -1,34 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
-@font-face{
+@font-face {
   font-family: ora;
   src: url("orange juice 2.0.ttf");
 }
 
 * {
-  box-sizing: border-box;
   overflow-y: hidden;
   overflow-x: hidden;
 }
 
 body {
-  /* background-image: url("Synthwave-Neon-80s-Background-2K.webp"); */
   background-size: cover;
-  background: #bc4e9c;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f80759, #bc4e9c);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f80759, #bc4e9c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  background-image: url("https://i1.wp.com/onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Gradient-Abstract-Shapes-Background-Color.jpg?w=1191");
   font-family: "Montserrat", sans-serif;
-  height: 100vh;
-  margin: -20px 0 50px;
 }
 
 h1 {
   font-weight: bold;
-  margin: 0;
+  font-size:5vmin;
 }
 
 h2 {
@@ -36,32 +26,24 @@ h2 {
 }
 
 p {
-  font-size: 14px;
+  font-size: 2.5vmin;
   font-weight: 100;
   line-height: 20px;
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
 }
 
-span {
-  font-size: 12px;
-}
-
-a {
-  color: #333;
-  font-size: 14px;
-  text-decoration: none;
-  margin: 15px 0;
-}
 
 button {
   border-radius: 20px;
   border: 1px solid #cd5c5c;
   background-color: #f08080;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 2vmin;
   font-weight: bold;
-  padding: 12px 45px;
+  height:50px;
+  width:80%;
+  margin-top:5%;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
@@ -99,19 +81,19 @@ form {
 input {
   background-color: #eee;
   border: none;
-  padding: 12px 15px;
-  margin: 8px 0;
+  padding: 3%;
+  font-size: 2.5vmin;
+  margin: 2%;
   width: 100%;
   outline: none;
   border: none;
   background: transparent;
   font: bold;
-  
 }
 
-.con{
+.con {
   font-family: ora;
-  font-size: 150px;
+  font-size: 20vmin;
   text-align: center;
 }
 
@@ -121,7 +103,7 @@ input {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
-  width: 768px;
+  width:50%;
   max-width: 100%;
   min-height: 480px;
 }
@@ -238,18 +220,25 @@ input {
   transform: translateX(20%);
 }
 
-input[type="text"]{
+input[type="text"] {
   border-bottom: 2px solid gray;
 }
 
-input[type="text"]:focus{
+input[type="text"]:focus {
   border-bottom: 2px solid purple;
+  transition: 3s;
 }
 
-input[type="password"]{
+input[type="password"] {
   border-bottom: 2px solid gray;
 }
 
-input[type="password"]:focus{
+input[type="password"]:focus {
   border-bottom: 2px solid purple;
+  transition: 3s;
+}
+
+@media screen and (max-device-width: 480px) {
+  .container{ width:95%;}
+  button{ height: 30px;}
 }

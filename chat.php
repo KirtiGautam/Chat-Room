@@ -13,7 +13,7 @@ if (!isset($_SESSION["name"])|| $_COOKIE['name'] == '')
     <link rel="stylesheet" href="styles/chat.css">
 </head>
 
-<body style="background-image: url('https://cdn.pixabay.com/photo/2017/08/12/03/22/flower-2633363_960_720.png');background-size:cover;">
+<body>
     <form action="">
         <table>
             <tr>
@@ -41,7 +41,7 @@ if (!isset($_SESSION["name"])|| $_COOKIE['name'] == '')
             </tr>
             <tr>
                 <td>
-                    <h2 id="used">Please select a user to chat with:</h2>
+                    <h2>Please select a user to chat with:</h2>
                 </td>
                 <td>
                     <h1 id="status">Chat window</h1>
