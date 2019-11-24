@@ -116,12 +116,15 @@ button:hover{
   font-size:30px;
 }
 
-.users:hover{
+li:hover{
   color: #b92b27;
   transition: 0.5s;
 }
 
-.users:active{
+li:active{
   color: #1565C0;
 }
 
+li{
+  cursor:pointer;
+}

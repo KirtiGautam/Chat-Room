@@ -16,6 +16,6 @@ while ($row = $result->fetch_assoc()) {
     $stat = "Online";
     if (($send - $rec) > 12)
         $stat = "Offline";
-    echo  "<li> <span style=' cursor: pointer;' onclick='getPaging(\"" . $row['username'] . "\")' id='" . $row['username'] . "'  value='" . $row['username'] . "'>" . $row['name'] ."  " . $stat .  "</span></li>";
+    echo  "<li> <span onclick='getPaging(\"" . $row['username'] . "\")' id='" . $row['username'] . "'  value='" . $row['username'] . "'>" . $row['name'] ."  " . $stat .  "</span></li>";
 }
 echo '</ul>';
