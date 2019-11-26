@@ -31,7 +31,7 @@ function changep() {
         return;
     }
     else {
-        pass ="pass="+me; 
+        pass ="pass="+pass; 
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {

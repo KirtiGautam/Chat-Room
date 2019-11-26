@@ -11,11 +11,14 @@ if (isset($_POST["login"])) {
     if ($result->num_rows > 0)
         while ($row = $result->fetch_assoc())
             if ($_POST["username"] == $row["username"] && password_verify($_POST["password"], $row["password"])) {
-                echo "welcome";
                 setcookie('name', $_POST["username"], time() + (86400 * 30), "/");
                 $_SESSION["name"] = $_POST["username"];
                 header('Location: chat.php');
             }
+    echo '<script type="text/javascript">',
+            'alert("Invalid Username/Password");',
+            '</script>'
+       ;
     mysqli_close($conn);
 } else if (isset($_POST["signUp"])) {
     @include("connect\connection.php");
